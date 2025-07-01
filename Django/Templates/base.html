@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}HadyaRealEstate | Find Your Home{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}Trusted real estate listings by Hadya Real Estate.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}real estate, homes, hadya, property, open plots, HMDA Plots, best investment plots, DTCP, RERA, HYDRA{% endblock %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block extra_meta %}{% endblock %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+</head>
+<body>
+    {% include 'partials/_navbar.html' %}
+    {% include 'partials/_topbar.html' %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'partials/_footer.html' %}
+
+    <script src="{% static 'jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

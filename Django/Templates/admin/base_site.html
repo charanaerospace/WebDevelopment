@@ -1,0 +1,25 @@
+<!--This block of code is the branding section of the Django admin site.
+ It displays the logo and the "Admin Area" text at the top of the admin interface.
+ The `` tag is used to define a section of the template that can be overridden by child templates.-->
+
+<!DOCTYPE html>
+{% extends 'admin/base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+      {% block branding %}
+       <h1 id="head">
+         <img src="{% static 'img/logo.png' %}" alt="HadyaRealEstate" height="50"
+              width="80" class="brand_img" >Admin Area
+       </h1>
+      {% endblock %}
+      {% block extrastyle %}
+         <link rel="stylesheet" href="{% static 'css/admin.css'  %}">
+      {% endblock %}
+
+</body>
+</html>

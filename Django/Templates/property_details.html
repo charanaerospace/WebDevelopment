@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{# ---------- SEO TITLE & DESCRIPTION ---------- #}
+{% block title %}{{ property.title }} | Hadya Real Estate{% endblock %}
+
+{% block meta_description %}
+  <meta name="description" content="{{ property.short_description|truncatewords:25 }}">
+{% endblock %}
+
+{# ---------- Open Graph & Twitter Cards ---------- #}
+{% block extra_meta %}
+  <meta property="og:title" content="{{ property.title }} | Hadya Real Estate">
+  <meta property="og:description" content="{{ property.short_description|truncatewords:25 }}">
+  <meta property="og:image" content="{{ request.build_absolute_uri(property.image.url) }}">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+  <meta property="og:type" content="article">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ property.title }} | Hadya Real Estate">
+  <meta name="twitter:description" content="{{ property.short_description|truncatewords:25 }}">
+  <meta name="twitter:image" content="{{ request.build_absolute_uri(property.image.url) }}">
+{% endblock %}
+
+{# ---------- Page Content ---------- #}
+{% block content %}
+  <h1>{{ property.title }}</h1>
+  <img src="{{ property.image.url }}" alt="Image of {{ property.title }}" style="max-width: 100%; height: auto;">
+  <p>{{ property.description }}</p>
+  <p><strong>Location:</strong> {{ property.city }}, {{ property.state }}</p>
+  <p><strong>Price:</strong> ₹{{ property.price }}</p>
+{% endblock %}
+
+{# ---------- Schema.org JSON-LD ---------- #}
+{% block extra_scripts %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Residence",
+      "name": "{{ property.title }}",
+      "description": "{{ property.short_description|escapejs }}",
+      "image": "{{ request.build_absolute_uri(property.image.url) }}",
+      "url": "{{ request.build_absolute_uri }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "{{ property.city }}",
+        "addressRegion": "{{ property.state }}",
+        "addressCountry": "IN"
+      }
+    }
+  </script>
+{% endblock %}

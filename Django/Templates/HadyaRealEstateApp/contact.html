@@ -1,0 +1,170 @@
+<!--This Django template file represents the contact page for the Hadya Real Estate App. It extends the base.html template and includes the following sections:-->
+<!--1. Showcase section: Displays the page title and a brief description.-->
+<!--2. Breadcrumb section: Provides navigation links to the home page and the current contact page.-->
+<!--3. About section: Includes information about the company, an image, and a brief description.-->
+<!--4. Location section: Displays the company's location details in a table format.-->
+<!--5. Work section: Encourages users to view the featured listings.-->
+<!--6. Team section: Introduces the real estate team members with their contact information.-->
+
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contact Us{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h1 class="display-4">Contact Us</h1>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Breadcrumb -->
+<section id="bc" class="mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'index' %}">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                </li>
+                <li class="breadcrumb-item active">Contact</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+<!-- Inquiry Modal -->
+
+  <section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>You Can Contact Us Or Call</h2>
+          <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+          <img src="{% static 'img/about.jpg' %}" alt="">
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia repudiandae ad saepe ex, amet
+            neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem at quaerat
+            commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+<!--            {% if mvp_realtors %}-->
+<!--          {% for realtor in mvp_realtors %}-->
+<!--          <div class="card mb-3">-->
+<!--            {% if realtor.photo_main %}-->
+<!--              <img class="card-img-top" src="{{ realtor.photo_main.url }}" alt="Seller of the month">-->
+<!--            {% endif %}-->
+            <div class="card-body">
+              <h5 class="card-title">Location</h5>
+<p class="card-text">
+  <img src="{% static 'img/location.jpg' %}" alt="Location Image">
+  <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; text-align: left;">
+    <tr>
+      <th>Street</th>
+      <td>Sahyadri Colony</td>
+    </tr>
+    <tr>
+      <th>City/Town</th>
+      <td>Vasind</td>
+    </tr>
+    <tr>
+      <th>State/Province/Region</th>
+      <td>Maharashtra</td>
+    </tr>
+    <tr>
+      <th>Zip/Postal Code</th>
+      <td>421601</td>
+    </tr>
+    <tr>
+      <th>Phone Number</th>
+      <td>1800 425 3800</td>
+    </tr>
+    <tr>
+      <th>Country</th>
+      <td>India</td>
+    </tr>
+    <tr>
+      <th>Latitude</th>
+      <td>19.408511</td>
+    </tr>
+    <tr>
+      <th>Longitude</th>
+      <td>73.259988</td>
+    </tr>
+  </table>
+</p>
+            </div>
+          </div>
+<!--          {% endfor %}-->
+<!--        {% else %}-->
+<!--          <p>No MVP Realtors available</p>-->
+<!--        {% endif %}-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="{% url 'listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-5">
+    <div class="container">
+      <h2 class="text-center">Our Team</h2>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img src="assets/img/realtors/kyle.jpg" alt="" class="rounded-circle mb-3">
+          <h4>Kyle Brown</h4>
+          <p class="text-success">
+            <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (555)-555-5555</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> kyle@btrealestate.co</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="assets/img/realtors/mark.jpg" alt="" class="rounded-circle mb-3">
+          <h4>Mark Hudson</h4>
+          <p class="text-success">Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (444)-444-4444</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> mark@btrealestate.co</p>
+        </div>
+
+        <div class="col-md-4">
+          <img src="assets/img/realtors/jenny.jpg" alt="" class="rounded-circle mb-3">
+          <h4>Jenny Johnson</h4>
+          <p class="text-success">Realtor</p>
+          <hr>
+          <p>
+            <i class="fas fa-phone"></i> (333)-333-3333</p>
+          <p>
+            <i class="fas fa-envelope-open"></i> jenny@btrealestate.co</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+</body>
+</html>
+
+
